@@ -20,8 +20,13 @@ def start():
             ayah_text = data["ayah"]["text"]
             ayah_index = data["ayah"]["index"]
             print("Ayah ke "+str(ayah_index)+ " and isi "+ str(ayah_text))
-            md.process_image(ayah_text, surah_name, ayah_index)
-            tw.post_tweet_with_media()
+            tweet_candidate = ayah_text + " [" + surah_name + " : " + str(ayah_index) + "]"
+            if len(tweet_candidate) < 280:
+                tw.api.update_status(tweet_candidate)
+            else:
+                md.process_image(ayah_text, surah_name, ayah_index)
+                tw.post_tweet_with_media()
+
             time.sleep(14400)
         except Exception as ex:
             print("Exception!")

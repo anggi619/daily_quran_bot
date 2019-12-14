@@ -15,3 +15,12 @@ class Twitter:
         except Exception as e:
             print(str(e))
             pass
+
+    def post_tweet(self, text):
+        try:
+            print("Tweet text only")
+            self.api.update_status(text)
+            print("Tweeted!")
+        except Exception as ex:
+            print(ex)
+            pass
