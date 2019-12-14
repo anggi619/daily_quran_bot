@@ -21,7 +21,7 @@ def start():
             ayah_index = data["ayah"]["index"]
             print("Ayah ke "+str(ayah_index)+ " and isi "+ str(ayah_text))
             tweet_candidate = ayah_text + " [" + surah_name + " : " + str(ayah_index) + "]"
-            if len(tweet_candidate) < 80:
+            if len(tweet_candidate) < 280:
                 tw.api.update_status(tweet_candidate)
             else:
                 md.process_image(ayah_text, surah_name, ayah_index)
