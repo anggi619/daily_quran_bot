@@ -3,6 +3,8 @@ import time
 from twitter import Twitter
 from media import Media
 
+# Changed english quran to indonesian quran
+
 md = Media()
 tw = Twitter()
 quran = Quran()
